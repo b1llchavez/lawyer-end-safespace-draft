@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeSpace PH - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-wrapper"> </div>
+     <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="https://i.ibb.co/qYYZs46L/logo.png"  alt="SafeSpace PH Logo" class="sidebar-logo">
+            <h1 class="sidebar-title">SafeSpace PH</h1>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html" class="active">
+                         <svg class="sidebar-nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                        </svg>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="case-handling.html"> <svg class="sidebar-nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                        </svg>
+                        Case Handling
+                    </a>
+                </li>
+
+                <li>
+                    <a href="details.html"> <svg class="sidebar-nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7zM21 21l-4.35-4.35M16 10a6 6 0 11-12 0 6 6 0 0112 0z"/>
+                    </svg>
+                        Case Details
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+       <main class="main-content">
+        <header class="main-header">
+            <h2 class="main-header-title">Dashboard</h2>
+            <div class="main-header-user" id="mainHeaderUser">
+                <div class="main-header-user-avatar">BM</div>
+                <span class="main-header-user-name">Bill</span>
+                <svg id="mainMenuIcon" class="main-header-menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+                <div id="userDropdown" class="dropdown-menu">
+                    <ul>
+                        <li><a href="account-settings.html">Account Settings</a></li>
+                        <li><a href="#" id="logoutButton">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-sections">
+            <section class="summary-cards-grid">
+                <div class="summary-card">
+                    <h3 class="card-title">Total No of Appointments</h3>
+                    <div class="progress-circle-wrapper">
+                        <svg class="progress-ring" width="100" height="100">
+                            <circle class="progress-ring-track" cx="50" cy="50" r="40"></circle>
+                            <circle class="progress-ring-progress" cx="50" cy="50" r="40" style="stroke-dasharray: 251.32; stroke-dashoffset: 226.19; stroke: #3B82F6;"></circle>
+                        </svg>
+                        <span class="progress-value">10</span>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <h3 class="card-title">Appointments Served</h3>
+                    <div class="progress-circle-wrapper">
+                        <svg class="progress-ring" width="100" height="100">
+                            <circle class="progress-ring-track" cx="50" cy="50" r="40"></circle>
+                            <circle class="progress-ring-progress" cx="50" cy="50" r="40" style="stroke-dasharray: 251.32; stroke-dashoffset: 226.19; stroke: #10B981;"></circle>
+                        </svg>
+                        <span class="progress-value">10</span>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <h3 class="card-title">Appointments Booked</h3>
+                    <div class="progress-circle-wrapper">
+                        <svg class="progress-ring" width="100" height="100">
+                            <circle class="progress-ring-track" cx="50" cy="50" r="40"></circle>
+                            <circle class="progress-ring-progress" cx="50" cy="50" r="40" style="stroke-dasharray: 251.32; stroke-dashoffset: 155.82; stroke: #F97316;"></circle>
+                        </svg>
+                        <span class="progress-value">38</span>
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <h3 class="card-title">Cancelled Appointment</h3>
+                    <div class="progress-circle-wrapper">
+                        <svg class="progress-ring" width="100" height="100">
+                            <circle class="progress-ring-track" cx="50" cy="50" r="40"></circle>
+                            <circle class="progress-ring-progress" cx="50" cy="50" r="40" style="stroke-dasharray: 251.32; stroke-dashoffset: 246.3; stroke: #EF4444;"></circle>
+                        </svg>
+                        <span class="progress-value">2</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bottom-cards-grid">
+                <div class="card lawyer-schedule-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Lawyer's Schedule</h3>
+                        <svg class="menu-dots-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 8C10.9 8 10 7.1 10 6C10 4.9 10.9 4 12 4C13.1 4 14 4.9 14 6C14 7.1 13.1 8 12 8ZM12 10C10.9 10 10 10.9 10 12C10 13.1 10.9 14 12 14C13.1 14 14 13.1 14 12C14 10.9 13.1 10 12 10ZM12 16C10.9 16 10 16.9 10 18C10 19.1 10.9 20 12 20C13.1 20 14 19.1 14 18C14 16.9 13.1 16 12 16Z"/>
+                        </svg>
+                    </div>
+                    <div class="card-content">
+                        <p class="placeholder-text">No schedule entries for today.</p>
+                    </div>
+                </div>
+
+                <div class="card legal-transactions-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Legal Transactions</h3>
+                        <a href="#" class="see-all-link">See All</a>
+                    </div>
+                    <div class="card-content transaction-list">
+                        <div class="transaction-item">
+                            <svg class="person-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"/>
+                            </svg>
+                            <span>Nicole Castillo</span>
+                            <span class="status-done">DONE</span>
+                        </div>
+                        <div class="transaction-item">
+                            <svg class="person-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"/>
+                            </svg>
+                            <span>Darlene Lascota</span>
+                            <span class="status-done">DONE</span>
+                        </div>
+                        <div class="transaction-item">
+                            <svg class="person-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"/>
+                            </svg>
+                            <span>Elaine Rizabal</span>
+                            <span class="status-done">DONE</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+     <div id="customModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 id="modalTitle" class="modal-title">Confirmation</h3>
+            <p id="modalMessage" class="modal-message">Are you sure?</p>
+            <div class="modal-actions">
+                <button id="modalConfirmButton" class="action-button">Confirm</button>
+                <button id="modalCancelButton" class="action-button">Cancel</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="toastNotification" class="toast"> <p id="toastMessage"></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const mainMenuIcon = document.getElementById('mainMenuIcon');
+            const userDropdown = document.getElementById('userDropdown');
+            const mainHeaderUser = document.getElementById('mainHeaderUser'); // Get the parent for the dropdown icon
+            
+
+            const saveButton = document.getElementById('saveSettingsButton');
+            const customModal = document.getElementById('customModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalMessage = document.getElementById('modalMessage');
+            const modalConfirmButton = document.getElementById('modalConfirmButton');
+            const modalCancelButton = document.getElementById('modalCancelButton');
+            const toastNotification = document.getElementById('toastNotification');
+            const toastMessage = document.getElementById('toastMessage');
+
+            let confirmCallback = null;
+            let cancelCallback = null;
+
+            // Function to show the modal
+            function showModal(title, message, type, onConfirm, onCancel) {
+                modalTitle.textContent = title;
+                modalMessage.textContent = message;
+                confirmCallback = onConfirm;
+                cancelCallback = onCancel;
+                customModal.classList.add('show');
+            }
+
+            // Function to hide the modal
+            function hideModal() {
+                customModal.classList.remove('show');
+                confirmCallback = null;
+                cancelCallback = null;
+            }
+
+            // Function to show toast notification
+            function showToast(message, type) {
+                toastMessage.textContent = message;
+                // Add specific class for success/error/info if desired for different colors
+                toastNotification.className = 'toast show'; // Reset classes and show
+                if (type) {
+                    toastNotification.classList.add(type); // Add type class for styling (e.g., 'success', 'error', 'info')
+                }
+                setTimeout(() => {
+                    toastNotification.classList.remove('show');
+                    // Remove type class after hiding if it was added
+                    if (type) {
+                        toastNotification.classList.remove(type);
+                    }
+                }, 3000); // Hide after 3 seconds
+            }
+
+            // Dropdown menu toggle
+            if (mainMenuIcon && userDropdown && mainHeaderUser) {
+                mainMenuIcon.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    userDropdown.classList.toggle('show');
+                    mainHeaderUser.classList.toggle('active'); // Add active class to rotate icon
+                });
+
+                document.addEventListener('click', (event) => {
+                    if (!userDropdown.contains(event.target) && !mainMenuIcon.contains(event.target)) {
+                        userDropdown.classList.remove('show');
+                        mainHeaderUser.classList.remove('active');
+                    }
+                });
+            }
+
+            // Save button click handler
+            if (saveButton) {
+                saveButton.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default form submission if button is inside a form
+                    showModal(
+                        'Save Changes', // More descriptive title
+                        'Are you sure you want to save your profile changes?', // More descriptive message
+                        'confirm-save',
+                        () => {
+                            // Logic to save changes (e.g., fetch API call)
+                            console.log('Changes saved successfully.');
+                            showToast('Settings saved successfully.', 'success');
+                            hideModal();
+                        },
+                        () => {
+                            console.log('Save action cancelled.');
+                            showToast('Changes not saved.', 'info');
+                            hideModal();
+                        }
+                    );
+                });
+            }
+
+            // Modal button event listeners
+            if (modalConfirmButton) {
+                modalConfirmButton.addEventListener('click', () => {
+                    if (confirmCallback) {
+                        confirmCallback();
+                    }
+                });
+            }
+
+            if (modalCancelButton) {
+                modalCancelButton.addEventListener('click', () => {
+                    if (cancelCallback) {
+                        cancelCallback();
+                    }
+                });
+            }
+
+            // Handle active state for sidebar navigation
+            const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+            sidebarLinks.forEach(link => {
+                if (link.href === window.location.href) {
+                    link.classList.add('active');
+                }
+            });
+
+            const logoutButton = document.getElementById('logoutButton');
+        if(logoutButton) {
+            logoutButton.addEventListener('click', (event) => {
+                event.preventDefault();
+                showModal(
+    'Logout',
+    'Are you sure you want to logout?',
+    'confirm-reject',
+    () => {
+        console.log('User logged out.');
+        showToast('Logged out successfully.', 'info');
+        // window.location.href = 'login.html';
+        hideModal(); // important!
+    },
+    () => {
+        console.log('Logout cancelled.');
+        showToast('Logout cancelled.', 'info');
+        hideModal();
+    }
+);
+
+            });
+        }
+        });
+    </script>
+</body>
+</html>

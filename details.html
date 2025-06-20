@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Violation Reports - SafeSpace PH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+        .report-entry {
+            background-color: var(--white);
+            padding: var(--padding-base);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px var(--shadow-color);
+            margin-bottom: var(--padding-base);
+            border: 1px solid var(--secondary-color);
+        }
+
+        .report-summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--secondary-color);
+        }
+
+        .report-summary h3 {
+            margin: 0;
+            color: var(--primary-color);
+        }
+
+        .report-summary .status {
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: var(--white);
+        }
+
+        .status.new { background-color: #007bff; } /* Blue */
+        .status.in-progress { background-color: #ffc107; } /* Yellow */
+        .status.resolved { background-color: #28a745; } /* Green */
+
+        .report-details {
+            display: none;
+            padding-top: 15px;
+        }
+
+        .report-details p {
+            margin-bottom: 8px;
+        }
+
+        .evidence-preview a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .evidence-preview a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="https://i.ibb.co/qYYZs46L/logo.png"  alt="SafeSpace PH Logo" class="sidebar-logo">
+            <h1 class="sidebar-title">SafeSpace PH</h1>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <svg class="sidebar-nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+</svg>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="case-handling.html" >
+                        <svg class="sidebar-nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                        </svg>
+                        Case Handling
+                    </a>
+                </li>
+
+                <li>
+                    <a href="details.html" class="active">
+                        <svg class="sidebar-nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7zM21 21l-4.35-4.35M16 10a6 6 0 11-12 0 6 6 0 0112 0z"/>
+</svg>
+                        Case Details
+                    </a>
+                </li>
+
+
+            </ul>
+        </nav>
+        
+        </div>
+
+   <main class="main-content">
+        <header class="main-header">
+            <h2 class="main-header-title">Case Details</h2>
+            <div class="main-header-user" id="mainHeaderUser">
+                <div class="main-header-user-avatar">BM</div>
+                <span class="main-header-user-name">Bill</span>
+                <svg id="mainMenuIcon" class="main-header-menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+                <div id="userDropdown" class="dropdown-menu">
+                    <ul>
+                        <li><a href="account-settings.html">Account Settings</a></li>
+                        <li><a href="#" id="logoutButton">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <div class="filter-controls">
+            <label for="reportStatusFilter">Status:</label>
+            <select id="reportStatusFilter" onchange="filterReports()">
+                <option value="">All</option>
+                <option value="New">New</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Resolved">Resolved</option>
+            </select>
+            <label for="startDate">From:</label>
+            <input type="date" id="startDate" onchange="filterReports()">
+            <label for="endDate">To:</label>
+            <input type="date" id="endDate" onchange="filterReports()">
+        </div>
+
+        <section class="reports-list">
+            <div class="report-entry" data-status="New" data-date="2024-05-20">
+                <div class="report-summary" onclick="toggleDetails(this)">
+                    <h3>Report ID: #00123 - Harassment Incident</h3>
+                    <span class="status new">New</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="report-details">
+                    <p><strong>Date Reported:</strong> 2024-05-20</p>
+                    <p><strong>Reported By:</strong> Jane Doe</p>
+                    <p><strong>Location:</strong> Public Park, Quezon City</p>
+                    <p><strong>Description:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div class="evidence-preview">
+                        <strong>Evidence:</strong> <a href="#" onclick="viewEvidence('report00123_photo.jpg')">Photo_1.jpg</a>, <a href="#" onclick="viewEvidence('report00123_statement.pdf')">WitnessStatement.pdf</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="report-entry" data-status="In Progress" data-date="2024-05-10">
+                <div class="report-summary" onclick="toggleDetails(this)">
+                    <h3>Report ID: #00122 - Public Indecency</h3>
+                    <span class="status in-progress">In Progress</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="report-details">
+                    <p><strong>Date Reported:</strong> 2024-05-10</p>
+                    <p><strong>Reported By:</strong> Anonymous</p>
+                    <p><strong>Location:</strong> Near X Street Market</p>
+                    <p><strong>Description:</strong> Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    <div class="evidence-preview">
+                        <strong>Evidence:</strong> <a href="#" onclick="viewEvidence('report00122_video.mp4')">CCTV_Footage.mp4</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="report-entry" data-status="Resolved" data-date="2024-04-25">
+                <div class="report-summary" onclick="toggleDetails(this)">
+                    <h3>Report ID: #00121 - Online Slander</h3>
+                    <span class="status resolved">Resolved</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="report-details">
+                    <p><strong>Date Reported:</strong> 2024-04-25</p>
+                    <p><strong>Reported By:</strong> Mark Johnson</p>
+                    <p><strong>Location:</strong> Online Platform</p>
+                    <p><strong>Description:</strong> Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <div class="evidence-preview">
+                        <strong>Evidence:</strong> <a href="#" onclick="viewEvidence('report00121_screenshots.zip')">Screenshots.zip</a>
+                    </div>
+                </div>
+            </div>
+            </section>
+    </main>
+
+    <div id="customModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 id="modalTitle" class="modal-title">Confirmation</h3>
+            <p id="modalMessage" class="modal-message">Are you sure?</p>
+            <div class="modal-actions">
+                <button id="modalConfirmButton" class="action-button">Confirm</button>
+                <button id="modalCancelButton" class="action-button">Cancel</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="toastNotification" class="toast"> <p id="toastMessage"></p>
+    </div>
+
+
+    <script>
+        function toggleDetails(element) {
+            const details = element.nextElementSibling;
+            const icon = element.querySelector('.fas');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            } else {
+                details.style.display = 'block';
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            }
+        }
+
+        function viewEvidence(fileName) {
+            alert(`Simulating viewing of: ${fileName}\nIn a real application, this would open a new tab or trigger a download.`);
+            // window.open(`/path/to/evidence/${fileName}`, '_blank');
+        }
+
+        function filterReports() {
+            const statusFilter = document.getElementById('reportStatusFilter').value;
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+            const reports = document.querySelectorAll('.report-entry');
+
+            reports.forEach(report => {
+                const reportStatus = report.dataset.status;
+                const reportDate = report.dataset.date;
+                let showReport = true;
+
+                if (statusFilter && reportStatus !== statusFilter) {
+                    showReport = false;
+                }
+
+                if (startDate && reportDate < startDate) {
+                    showReport = false;
+                }
+
+                if (endDate && reportDate > endDate) {
+                    showReport = false;
+                }
+
+                report.style.display = showReport ? 'block' : 'none';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const mainMenuIcon = document.getElementById('mainMenuIcon');
+            const userDropdown = document.getElementById('userDropdown');
+            const mainHeaderUser = document.getElementById('mainHeaderUser'); // Get the parent for the dropdown icon
+            
+
+            const saveButton = document.getElementById('saveSettingsButton');
+            const customModal = document.getElementById('customModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalMessage = document.getElementById('modalMessage');
+            const modalConfirmButton = document.getElementById('modalConfirmButton');
+            const modalCancelButton = document.getElementById('modalCancelButton');
+            const toastNotification = document.getElementById('toastNotification');
+            const toastMessage = document.getElementById('toastMessage');
+
+            let confirmCallback = null;
+            let cancelCallback = null;
+
+            // Function to show the modal
+            function showModal(title, message, type, onConfirm, onCancel) {
+                modalTitle.textContent = title;
+                modalMessage.textContent = message;
+                confirmCallback = onConfirm;
+                cancelCallback = onCancel;
+                customModal.classList.add('show');
+            }
+
+            // Function to hide the modal
+            function hideModal() {
+                customModal.classList.remove('show');
+                confirmCallback = null;
+                cancelCallback = null;
+            }
+
+            // Function to show toast notification
+            function showToast(message, type) {
+                toastMessage.textContent = message;
+                // Add specific class for success/error/info if desired for different colors
+                toastNotification.className = 'toast show'; // Reset classes and show
+                if (type) {
+                    toastNotification.classList.add(type); // Add type class for styling (e.g., 'success', 'error', 'info')
+                }
+                setTimeout(() => {
+                    toastNotification.classList.remove('show');
+                    // Remove type class after hiding if it was added
+                    if (type) {
+                        toastNotification.classList.remove(type);
+                    }
+                }, 3000); // Hide after 3 seconds
+            }
+
+            // Dropdown menu toggle
+            if (mainMenuIcon && userDropdown && mainHeaderUser) {
+                mainMenuIcon.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    userDropdown.classList.toggle('show');
+                    mainHeaderUser.classList.toggle('active'); // Add active class to rotate icon
+                });
+
+                document.addEventListener('click', (event) => {
+                    if (!userDropdown.contains(event.target) && !mainMenuIcon.contains(event.target)) {
+                        userDropdown.classList.remove('show');
+                        mainHeaderUser.classList.remove('active');
+                    }
+                });
+            }
+
+            // Save button click handler
+            if (saveButton) {
+                saveButton.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default form submission if button is inside a form
+                    showModal(
+                        'Save Changes', // More descriptive title
+                        'Are you sure you want to save your profile changes?', // More descriptive message
+                        'confirm-save',
+                        () => {
+                            // Logic to save changes (e.g., fetch API call)
+                            console.log('Changes saved successfully.');
+                            showToast('Settings saved successfully.', 'success');
+                            hideModal();
+                        },
+                        () => {
+                            console.log('Save action cancelled.');
+                            showToast('Changes not saved.', 'info');
+                            hideModal();
+                        }
+                    );
+                });
+            }
+
+            // Modal button event listeners
+            if (modalConfirmButton) {
+                modalConfirmButton.addEventListener('click', () => {
+                    if (confirmCallback) {
+                        confirmCallback();
+                    }
+                });
+            }
+
+            if (modalCancelButton) {
+                modalCancelButton.addEventListener('click', () => {
+                    if (cancelCallback) {
+                        cancelCallback();
+                    }
+                });
+            }
+
+            // Handle active state for sidebar navigation
+            const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+            sidebarLinks.forEach(link => {
+                if (link.href === window.location.href) {
+                    link.classList.add('active');
+                }
+            });
+
+            const logoutButton = document.getElementById('logoutButton');
+        if(logoutButton) {
+            logoutButton.addEventListener('click', (event) => {
+                event.preventDefault();
+                showModal(
+    'Logout',
+    'Are you sure you want to logout?',
+    'confirm-reject',
+    () => {
+        console.log('User logged out.');
+        showToast('Logged out successfully.', 'info');
+        // window.location.href = 'login.html';
+        hideModal(); // important!
+    },
+    () => {
+        console.log('Logout cancelled.');
+        showToast('Logout cancelled.', 'info');
+        hideModal();
+    }
+);
+
+            });
+        }
+         });
+    </script>
+</body>
+</html>

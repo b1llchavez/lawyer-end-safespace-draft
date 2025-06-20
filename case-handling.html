@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeSpace PH - Case Handling</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="https://i.ibb.co/qYYZs46L/logo.png"  alt="SafeSpace PH Logo" class="sidebar-logo">
+            <h1 class="sidebar-title">SafeSpace PH</h1>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <svg class="sidebar-nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+</svg>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="case-handling.html" class="active">
+                        <svg class="sidebar-nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                        </svg>
+                        Case Handling
+                    </a>
+                </li>
+                <li>
+                    <a href="details.html"> <svg class="sidebar-nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7zM21 21l-4.35-4.35M16 10a6 6 0 11-12 0 6 6 0 0112 0z"/>
+                    </svg>
+                        Case Details
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        </div>
+
+    <main class="main-content">
+        <header class="main-header">
+            <h2 class="main-header-title">Case Handling</h2>
+            <div class="main-header-user">
+                <div class="main-header-user-avatar">BM</div>
+                <span class="main-header-user-name">Bill</span>
+                <svg id="mainMenuIcon" class="main-header-menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+</svg>
+                <div id="userDropdown" class="dropdown-menu">
+    <ul>
+        <li><a href="account-settings.html">Account Settings</a></li>
+        <li><a href="#" id="logoutButton">Logout</a></li>
+    </ul>
+</div>
+            </div>
+        </header>
+
+        <div class="table-section">
+            <div class="overflow-x-auto">
+                <table class="case-table">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Phone Number</th>
+                            <th>Appointment Date & Time</th>
+                            <th>Status</th>
+                            <th class="action-header">ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Jessie</td>
+                            <td>Santos</td>
+                            <td>+63 9326549110</td>
+                            <td>21-May-2025 at 11:00 AM</td>
+                            <td>
+                                <span class="status-badge open">Open</span>
+                            </td>
+                            <td class="action-buttons">
+                                <button class="action-button accept">Accept</button>
+                                <button class="action-button reject">Reject</button>
+                                <button class="action-icon-button delete">
+                                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sarah</td>
+                            <td>Martin</td>
+                            <td>+63 9326549110</td>
+                            <td>21-May-2025 at 11:00 AM</td>
+                            <td>
+                                <span class="status-badge booked">Booked</span>
+                            </td>
+                            <td class="action-buttons">
+                                <button class="action-button accept">Accept</button>
+                                <button class="action-button reject">Reject</button>
+                                <button class="action-icon-button delete">
+                                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Nicole</td>
+                            <td>Castillo</td>
+                            <td>+63 9326549110</td>
+                            <td>21-May-2025 at 11:00 AM</td>
+                            <td>
+                                <span class="status-badge completed">Completed</span>
+                            </td>
+                            <td class="action-buttons">
+                                <button class="action-button accept">Accept</button>
+                                <button class="action-button reject">Reject</button>
+                                
+                                <button class="action-icon-button delete">
+                                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Cameron</td>
+                            <td>Williamson</td>
+                            <td>+63 9326549110</td>
+                            <td>21-May-2025 at 11:00 AM</td>
+                            <td>
+                                <span class="status-badge open">Open</span>
+                            </td>
+                            <td class="action-buttons">
+                                <button class="action-button accept">Accept</button>
+                                <button class="action-button reject">Reject</button>
+                                <button class="action-icon-button delete">
+                                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>Leslie</td>
+                            <td>Morales</td>
+                            <td>+63 9326549110</td>
+                            <td>21-May-2025 at 11:00 AM</td>
+                            <td>
+                                <span class="status-badge open">Open</span>
+                            </td>
+                            <td class="action-buttons">
+                                <button class="action-button accept">Accept</button>
+                                <button class="action-button reject">Reject</button>
+                               <button class="action-icon-button delete">
+                                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>Savannah</td>
+                            <td>Geraldez</td>
+                            <td>+63 9326549110</td>
+                            <td>21-May-2025 at 11:00 AM</td>
+                            <td>
+                                <span class="status-badge open">Open</span>
+                            </td>
+                            <td class="action-buttons">
+                                <button class="action-button accept">Accept</button>
+                                <button class="action-button reject">Reject</button>
+                                <button class="action-icon-button delete">
+                                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Darlene</td>
+                            <td>Lascota</td>
+                            <td>+63 9326549110</td>
+                            <td>21-May-2025 at 11:00 AM</td>
+                            <td>
+                                <span class="status-badge completed">Completed</span>
+                            </td>
+                            <td class="action-buttons">
+                                <button class="action-button accept">Accept</button>
+                                <button class="action-button reject">Reject</button>
+                                <button class="action-icon-button delete">
+                                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ronald</td>
+                            <td>Rovira</td>
+                            <td>+63 9326549110</td>
+                            <td>21-May-2025 at 11:00 AM</td>
+                            <td>
+                                <span class="status-badge open">Open</span>
+                            </td>
+                            <td class="action-buttons">
+                                <button class="action-button accept">Accept</button>
+                                <button class="action-button reject">Reject</button>
+                                <button class="action-icon-button delete">
+                                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Kathryn</td>
+                            <td>Mariano</td>
+                            <td>+63 9326549110</td>
+                            <td>21-May-2025 at 11:00 AM</td>
+                            <td>
+                                <span class="status-badge open">Open</span>
+                            </td>
+                            <td class="action-buttons">
+                                <button class="action-button accept">Accept</button>
+                                <button class="action-button reject">Reject</button>
+                                <button class="action-icon-button delete">
+                                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Caitlyn</td>
+                            <td>Velasquez</td>
+                            <td>+63 9326549110</td>
+                            <td>21-May-2025 at 11:00 AM</td>
+                            <td>
+                                <span class="status-badge open">Open</span>
+                            </td>
+                            <td class="action-buttons">
+                                <button class="action-button accept">Accept</button>
+                                <button class="action-button reject">Reject</button>
+                                <button class="action-icon-button delete">
+                                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+
+            <nav class="pagination-nav" aria-label="Pagination">
+                <a href="#" class="pagination-link">Previous</a>
+                <a href="#" aria-current="page" class="pagination-link active">1</a>
+                <a href="#" class="pagination-link">2</a>
+                <a href="#" class="pagination-link">3</a>
+                <a href="#" class="pagination-link">Next</a>
+            </nav>
+        </div>
+    </main>
+      <div id="customModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 id="modalTitle" class="modal-title">Confirmation</h3>
+            <p id="modalMessage" class="modal-message">Are you sure?</p>
+            <div class="modal-actions">
+                <button id="modalConfirmButton" class="action-button">Confirm</button>
+                <button id="modalCancelButton" class="action-button">Cancel</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="toastNotification" class="toast"> <p id="toastMessage"></p>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const modalOverlay = document.getElementById('customModal');
+        const modalTitleElem = document.getElementById('modalTitle');
+        const modalMessageElem = document.getElementById('modalMessage');
+        const modalConfirmButton = document.getElementById('modalConfirmButton');
+        const modalCancelButton = document.getElementById('modalCancelButton');
+
+        const toastNotification = document.getElementById('toastNotification');
+        const toastMessageElem = document.getElementById('toastMessage');
+        let currentConfirmAction = null;
+        let toastTimeout = null;
+
+        // Function to show toast notification
+        function showToast(message, type = 'info') { // types: success, error, info
+            if (toastTimeout) clearTimeout(toastTimeout); 
+
+            toastMessageElem.textContent = message;
+            toastNotification.className = 'toast'; 
+            toastNotification.classList.add(type); 
+            toastNotification.classList.add('show');
+            // toastNotification.style.display = 'block'; // Handled by .show class
+
+            toastTimeout = setTimeout(() => {
+                toastNotification.classList.remove('show');
+            }, 3000); 
+        }
+
+        // Function to show modal
+        function showModal(title, message, confirmButtonClass, confirmAction) {
+            modalTitleElem.textContent = title;
+            modalMessageElem.innerHTML = message; 
+            
+            modalConfirmButton.className = 'action-button'; 
+            if (confirmButtonClass) {
+                modalConfirmButton.classList.add(confirmButtonClass);
+            }
+
+            currentConfirmAction = confirmAction;
+            modalOverlay.classList.add('show');
+            // modalOverlay.style.display = 'flex'; // Handled by .show class if display is set there
+        }
+
+        // Function to hide modal
+        function hideModal() {
+            modalOverlay.classList.remove('show');
+            currentConfirmAction = null;
+        }
+
+        modalConfirmButton.addEventListener('click', () => {
+            if (typeof currentConfirmAction === 'function') {
+                currentConfirmAction();
+            }
+            hideModal();
+        });
+
+        modalCancelButton.addEventListener('click', () => {
+            showToast('Action cancelled.', 'info');
+            hideModal();
+        });
+        
+        modalOverlay.addEventListener('click', (event) => {
+            if (event.target === modalOverlay) {
+                 showToast('Action cancelled.', 'info');
+                hideModal();
+            }
+        });
+
+        document.querySelectorAll('.action-button.accept').forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                const caseName = button.dataset.caseName || 'this case';
+                showModal(
+                    'Accept Case', 
+                    `Are you sure you want to accept <strong>${caseName}</strong>?`,
+                    'confirm-accept', 
+                    () => {
+                        console.log(`Case ${caseName} accepted.`);
+                        showToast(`Case ${caseName} accepted successfully!`, 'success');
+                        const statusBadge = button.closest('tr').querySelector('.status-badge');
+                        if (statusBadge) {
+                            statusBadge.textContent = 'Booked';
+                            statusBadge.className = 'status-badge booked';
+                        }
+                    }
+                );
+            });
+        });
+
+        document.querySelectorAll('.action-button.reject').forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                const caseName = button.dataset.caseName || 'this case';
+                showModal(
+                    'Reject Case',
+                    `Are you sure you want to reject <strong>${caseName}</strong>?`,
+                    'confirm-reject', 
+                    () => {
+                        console.log(`Case ${caseName} rejected.`);
+                        showToast(`Case ${caseName} rejected.`, 'error');
+                         const statusBadge = button.closest('tr').querySelector('.status-badge');
+                        if (statusBadge) {
+                            statusBadge.textContent = 'Rejected'; 
+                            statusBadge.className = 'status-badge'; 
+                            // Consider adding a .status-badge.rejected CSS style for specific styling
+                        }
+                    }
+                );
+            });
+        });
+
+        document.querySelectorAll('.action-icon-button.delete').forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                const caseName = button.dataset.caseName || 'this case';
+                showModal(
+                    'Delete Case',
+                    `Are you sure you want to delete <strong>${caseName}</strong>? This action cannot be undone.`,
+                    'confirm-delete', 
+                    () => {
+                        console.log(`Case ${caseName} deleted.`);
+                        showToast(`Case ${caseName} deleted successfully!`, 'success');
+                        button.closest('tr').remove();
+                    }
+                );
+            });
+        });
+
+        const mainMenuIcon = document.getElementById('mainMenuIcon');
+        const userDropdown = document.getElementById('userDropdown');
+
+        if (mainMenuIcon && userDropdown) {
+            mainMenuIcon.addEventListener('click', (event) => {
+                event.stopPropagation(); 
+                userDropdown.classList.toggle('show');
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!userDropdown.contains(event.target) && !mainMenuIcon.contains(event.target)) {
+                    userDropdown.classList.remove('show');
+                }
+            });
+        }
+        
+        const logoutButton = document.getElementById('logoutButton');
+        if(logoutButton) {
+            logoutButton.addEventListener('click', (event) => {
+                event.preventDefault();
+                showModal(
+                    'Logout',
+                    'Are you sure you want to logout?',
+                    'confirm-reject', 
+                    () => {
+                        console.log('User logged out.');
+                        showToast('Logged out successfully.', 'info');
+                        // window.location.href = 'login.html';
+                    }
+                );
+            });
+        }
+
+    });
+    </script>
+</body>
+</html>
